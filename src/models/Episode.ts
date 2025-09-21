@@ -5,7 +5,7 @@ export class Episode {
     private episodeNumber: number;
     private watched: boolean;
 
-    private static incrementId: number = 0;
+    private static incrementId: number = 5000;
 
     constructor(title: string, episodeNumber: number, duration: number) {
         Episode.incrementId++;

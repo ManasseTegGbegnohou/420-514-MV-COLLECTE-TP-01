@@ -6,7 +6,7 @@ export class Media {
     private rating: number;
     private type: "Film" | "Serie";
 
-    private static incrementId: number = 0;
+    private static incrementId: number = 5000;
 
     constructor(title: string, genre: string, year: number, rating: number) {
         Media.incrementId++;

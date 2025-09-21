@@ -6,7 +6,7 @@ export class Season {
     private releaseDate: Date; // Format : new Date("2023-05-10") || new Date(2023, 4, 10)
     private episodes: Episode[];
 
-    private static incrementId: number = 0;
+    private static incrementId: number = 5000;
 
     constructor(seasonNumber: number, releaseDate: Date /*new Date("2023-05-10")*/) {
         Season.incrementId++;

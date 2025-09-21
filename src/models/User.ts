@@ -5,7 +5,7 @@ export class User {
     private role: "admin" | "user";
     private favoriteMedias: number[]; // store only media IDs
 
-    private static incrementId: number = 0;
+    private static incrementId: number = 50;
 
     constructor(email: string, password: string, role: "admin" | "user") {
         User.incrementId++;
