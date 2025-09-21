@@ -30,18 +30,7 @@ export class Serie extends Media {
         this.seasons.push(season);
     }
 
-    // METHODS ???????
-    public toString(): string {
-        for (const season of this.seasons) {
-            for (const episode of season.getEpisodes()) {
-                if (!episode.isWatched()) {
-                    return `${this.getTitle()} (${this.getYear()}) - Genre: ${this.getGenre()}, Rating: ${this.getRating()}/10, Status: ${this.status}, Seasons: ${this.seasons.length}`;
-                }
-            }
-        }
-        return `${this.getTitle()} (${this.getYear()}) - Genre: ${this.getGenre()}, Rating: ${this.getRating()}/10, Status: ${this.status}, Seasons: ${this.seasons}`;
-    }
-
+    // METHODS ???????\
     public markEpisodeAsWatched(seasonNumber: number, episodeTitle: string): void {
     }
 }
