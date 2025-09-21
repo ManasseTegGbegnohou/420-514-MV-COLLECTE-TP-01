@@ -1,11 +1,9 @@
-import { Media } from "./Media.ts";
-
 export class User {
     private readonly id: number;
     private email: string;
     private password: string;
     private role: "admin" | "user";
-    private favorites: Media[];
+    private favoriteMedias: number[]; // store only media IDs
 
     private static incrementId: number = 0;
 
@@ -15,7 +13,7 @@ export class User {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.favorites = [];
+        this.favoriteMedias = [];
     }
 
     // GET
@@ -31,11 +29,11 @@ export class User {
     public getRole(): "admin" | "user" {
         return this.role;
     }
-    public getFavorites(): Media[] {
-        return this.favorites;
+    public getFavorites(): number[] {
+        return this.favoriteMedias;
     }
     public getSummary(): string {
-        return `Email: ${this.email}, Role: ${this.role}, Favorites Count: ${this.favorites.length}`;
+        return `Email: ${this.email}, Role: ${this.role}, FavoriteMedias Count: ${this.favoriteMedias.length}`;
     }
 
     // SET
@@ -50,10 +48,14 @@ export class User {
     }
 
     // METHODS
-    public addFavorite(media: Media): void {
-        this.favorites.push(media);
+    public addFavorite(mediaId: number): void {
+        if (!this.favoriteMedias.includes(mediaId)) {
+            this.favoriteMedias.push(mediaId);
+        }
     }
+
     public removeFavorite(mediaId: number): void {
-        this.favorites = this.favorites.filter(media => media.getId() !== mediaId);
+        this.favoriteMedias = this.favoriteMedias.filter(id => id !== mediaId);
     }
+
 }

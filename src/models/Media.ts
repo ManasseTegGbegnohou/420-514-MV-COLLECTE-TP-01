@@ -4,6 +4,7 @@ export class Media {
     private genre: string;
     private year: number;
     private rating: number;
+    private type: "Film" | "Serie";
 
     private static incrementId: number = 0;
 
@@ -18,6 +19,8 @@ export class Media {
 
         if (rating < 0 || rating > 10) throw new Error("Rating must be between 0 and 10.");
         this.rating = rating;
+
+        this.type = this.constructor.name as "Film" | "Serie";
     }
 
     // GET
@@ -39,12 +42,13 @@ export class Media {
     public getRating(): number {
         return this.rating;
     }
+    public getType(): "Film" | "Serie" {
+        return this.type;
+    }
 
     // SET
     public setRating(newRating: number): void {
-        if (newRating < 0 || newRating > 10) {
-            throw new Error("Rating must be between 0 and 10.");
-        }
+        if (newRating < 0 || newRating > 10) throw new Error("Rating must be between 0 and 10.");
         this.rating = newRating;
     }
     public setTitle(title: string): void {
@@ -54,6 +58,7 @@ export class Media {
         this.genre = genre;
     }
     public setYear(year: number): void {
+        if (year < 0) throw new Error("Invalid year.");
         this.year = year;
     }
 }

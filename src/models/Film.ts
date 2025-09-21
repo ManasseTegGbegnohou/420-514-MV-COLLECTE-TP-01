@@ -27,6 +27,7 @@ export class Film extends Media {
         this.watched = watched;
     }
     public setDuration(duration: number): void {
+        if (duration < 0) throw new Error("Duration must be a positive number.");
         this.duration = duration;
     }
 }
