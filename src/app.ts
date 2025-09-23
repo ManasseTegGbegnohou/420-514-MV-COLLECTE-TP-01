@@ -5,6 +5,9 @@ import { Film } from './models/Film.ts';
 import { User } from './models/User.ts';
 import { Season } from './models/Season.ts';
 import { Episode } from './models/Episode.ts';
+import fs from 'fs';
+import { getMediaFromJSON } from './services/mediaService.ts';
+
 
 
 const app = express();
@@ -26,8 +29,7 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-// Run with npm run dev
-
+/* // Run with npm run dev
 // Example Episode
 console.log("---------------------");
 const episode01 = new Episode("Winter Is Coming", 1, 62);
@@ -66,4 +68,6 @@ console.log("---------------------");
 // Example User
 const myUser = new User("user@gmail.com", "passord", "user");
 console.log("User: " + myUser.getSummary());
-console.log("---------------------");
+console.log("---------------------"); */
+
+console.log(getMediaFromJSON("Film"));
