@@ -6,7 +6,7 @@ import { User } from './models/User.ts';
 import { Season } from './models/Season.ts';
 import { Episode } from './models/Episode.ts';
 import fs from 'fs';
-import { getMediaFromJSON } from './services/mediaService.ts';
+import { getMediaFromJSON, getSeasonsFromSerieId } from './services/mediaService.ts';
 
 
 
@@ -70,4 +70,5 @@ const myUser = new User("user@gmail.com", "passord", "user");
 console.log("User: " + myUser.getSummary());
 console.log("---------------------"); */
 
-console.log(getMediaFromJSON("Film"));
+// console.log(getMediaFromJSON("Serie"));
+console.log(getSeasonsFromSerieId(26));

@@ -1,8 +1,8 @@
 import { Media } from './Media.ts';
 
 export class Film extends Media {
-    private duration : number;
-    private watched : boolean = false;
+    private duration: number;
+    private watched: boolean = false;
 
     constructor(title: string, genre: string, year: number, rating: number, duration: number) {
         super(title, genre, year, rating);

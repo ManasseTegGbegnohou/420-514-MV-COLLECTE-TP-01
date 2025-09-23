@@ -6,7 +6,7 @@ export class Serie extends Media {
     private seasons: Season[];
 
     constructor(title: string, genre: string, year: number, rating: number, status: "Ongoing" | "Finished") {
-        super(title, genre, year, rating);  
+        super(title, genre, year, rating);
         this.status = status;
         this.seasons = [];
     }
