@@ -65,7 +65,7 @@ export const getLastAction = (): any | null => {
         }
 
         // Get the last line
-        const lastLine = lines[lines.length - 1];
+        const lastLine = lines[lines.length - 2];
         
         if (!lastLine) {
             return null;

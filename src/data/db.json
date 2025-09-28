@@ -171,7 +171,7 @@
       "title": "The Dark Knight",
       "genre": "Action",
       "year": 2008,
-      "rating": 9.0,
+      "rating": 9,
       "duration": 152,
       "watched": false
     },
@@ -341,7 +341,7 @@
       "title": "La La Land",
       "genre": "Musical",
       "year": 2016,
-      "rating": 8.0,
+      "rating": 8,
       "duration": 128,
       "watched": false
     },
@@ -351,7 +351,7 @@
       "title": "The Revenant",
       "genre": "Adventure",
       "year": 2015,
-      "rating": 8.0,
+      "rating": 8,
       "duration": 156,
       "watched": false
     },
@@ -991,6 +991,108 @@
               "watched": false
             }
           ]
+        },
+        {
+          "id": 2403,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": [
+            {
+              "id": 1,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 2,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 3,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 4,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 5,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2404,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2405,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2406,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2407,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2408,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2409,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2410,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2411,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2412,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2413,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
         }
       ]
     },
@@ -1602,8 +1704,8 @@
       "id": 29,
       "type": "Serie",
       "title": "Westworld",
-      "genre": "Sci-Fi",
-      "year": 2016,
+      "genre": "drama",
+      "year": 2020,
       "rating": 8.7,
       "status": "Ongoing",
       "seasons": [
@@ -1731,6 +1833,222 @@
           ]
         }
       ]
+    },
+    {
+      "id": 31,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 32,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2027,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 33,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 34,
+      "title": "Test Film",
+      "genre": "Action",
+      "year": 2020,
+      "rating": 8,
+      "platform": "Netflix",
+      "type": "Film"
+    },
+    {
+      "id": 35,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 36,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 37,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 38,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 39,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 40,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 41,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 42,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 43,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 44,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 45,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 46,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 47,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 48,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 49,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 50,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 51,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 52,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 53,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 54,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
     }
   ]
 }

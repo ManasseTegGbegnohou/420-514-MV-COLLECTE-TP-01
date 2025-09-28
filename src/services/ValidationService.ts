@@ -30,7 +30,8 @@ export class ValidationService {
     }
 
     static validateYear(year: number): boolean {
-        return this.PATTERNS.year.test(year.toString());
+        const currentYear = new Date().getFullYear();
+        return this.PATTERNS.year.test(year.toString()) && year <= currentYear;
     }
 
     static validateGenre(genre: string): boolean {
@@ -45,13 +46,6 @@ export class ValidationService {
     static validateMediaData(mediaData: any): { isValid: boolean; errors: string[] } {
         const errors: string[] = [];
 
-        // Type
-        if (!mediaData.type) {
-            errors.push('Type is required');
-        } else if (mediaData.type !== 'Film' && mediaData.type !== 'Serie') {
-            errors.push('Invalid type');
-        }
-
         // Title
         if (!mediaData.title) {
             errors.push('Title is required');
@@ -59,6 +53,13 @@ export class ValidationService {
             errors.push('Title must contain only letters, numbers, and spaces');
         }
 
+        // Type
+        if (!mediaData.type) {
+            errors.push('Type is required');
+        } else if (mediaData.type !== 'Film' && mediaData.type !== 'Serie') {
+            errors.push('Invalid type');
+        }
+        
         // Platform
         if (!mediaData.platform) {
             errors.push('Platform is required');
@@ -78,7 +79,7 @@ export class ValidationService {
 
         // Year
         if (mediaData.year && !this.validateYear(mediaData.year)) {
-            errors.push('Year must be a positive number');
+            errors.push('Year must be a positive number and cannot be in the future');
         }
 
         // Genre
@@ -122,7 +123,7 @@ export class ValidationService {
                 break;
             case 'year':
                 if (!this.validateYear(value)) {
-                    return { isValid: false, error: 'Invalid year' };
+                    return { isValid: false, error: 'Year must be a positive number and cannot be in the future' };
                 }
                 break;
             case 'genre':
