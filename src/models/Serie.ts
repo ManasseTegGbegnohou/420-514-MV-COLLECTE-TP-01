@@ -2,17 +2,17 @@ import { Media } from './Media.ts';
 import { Season } from './Season.ts';
 
 export class Serie extends Media {
-    private status: "Ongoing" | "Finished";
+    private status: "Ongoing" | "Finished" | "On_hold";
     private seasons: Season[];
 
-    constructor(title: string, genre: string, year: number, rating: number, status: "Ongoing" | "Finished") {
+    constructor(title: string, genre: string, year: number, rating: number, status: "Ongoing" | "Finished" | "On_hold") {
         super(title, genre, year, rating);
         this.status = status;
         this.seasons = [];
     }
 
     // GET
-    public getStatus(): "Ongoing" | "Finished" {
+    public getStatus(): "Ongoing" | "Finished" | "On_hold" {
         return this.status;
     }
     public getSeasons(): Season[] {
@@ -23,7 +23,7 @@ export class Serie extends Media {
     }
 
     // SET
-    public setStatus(status: "Ongoing" | "Finished"): void {
+    public setStatus(status: "Ongoing" | "Finished" | "On_hold"): void {
         this.status = status;
     }
     public addSeason(season: Season): void {
