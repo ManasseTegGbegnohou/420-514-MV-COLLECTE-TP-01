@@ -49,3 +49,41 @@ export const addSerie = (req: Request, res: Response) => {
         res.status(500).json({ error: "Internal server error" });
     }
 }
+
+// GET /api/series/:id/episodes
+export const getSerie = (req: Request, res: Response) => {
+    const correlationId = (req as any).correlationId;
+    try {
+        const {id} = req.params;
+
+        if (!Number.isInteger(parseInt(id as string)) || parseInt(id as string) < 0) {
+            errorsLogger.error('Serie validation failed', {
+                correlationId,
+                url: req.url,
+                timestamp: new Date().toISOString()
+            });
+            
+            res.status(400).json({ error: "Invalid id"});
+            return;
+        }
+
+        const seriesEpisodes = MediaService.getEpisodesBySerieId(parseInt(id as string));
+        operationsLogger.info('Serie episodes fetched successfully', {
+            correlationId,
+            url: req.url,
+            serieId: id,
+            timestamp: new Date().toISOString()
+        });
+        res.status(200).json(seriesEpisodes);
+    } catch (error) {
+        errorsLogger.error('Error fetching episodes', {
+            correlationId,
+            url: req.url,
+            error: error instanceof Error ? error.message : String(error),
+            stack: error instanceof Error ? error.stack : undefined,
+            timestamp: new Date().toISOString()
+        });
+        
+        res.status(500).json({ error: "Internal server error" });
+    }
+}

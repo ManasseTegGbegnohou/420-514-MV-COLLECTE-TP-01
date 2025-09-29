@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "c1d79598-8272-4760-bbb2-c485a23523b3",
+		"name": "420-514-MV-COLLECTE-TP-01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "48551005"
+	},
+	"item": [
+		{
+			"name": "tests",
+			"item": [
+				{
+					"name": "/medias",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alice\"\r\n}\r\n"
+						},
+						"url": "http://localhost:3000/api/medias"
+					},
+					"response": []
+				},
+				{
+					"name": "/medias?type=serie&genre=drama&year=2020",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/medias?type=Serie&genre=drama&year=2020",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Serie"
+								},
+								{
+									"key": "genre",
+									"value": "drama"
+								},
+								{
+									"key": "year",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/films",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"The Dark Knight\",\r\n  \"genre\": \"Action\",\r\n  \"year\": 2008,\r\n  \"rating\": 9.0,\r\n  \"platform\" : \"Disney\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/films"
+					},
+					"response": []
+				},
+				{
+					"name": "/series",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Breaking Bad\",\r\n  \"genre\": \"Drama\",\r\n  \"year\": 2008,\r\n  \"rating\": 9.5,\r\n  \"platform\": \"Netflix\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/series"
+					},
+					"response": []
+				},
+				{
+					"name": "/seasons",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serieId\": 24,\r\n  \"seasonNumber\": 3,\r\n  \"releaseDate\": \"2023-05-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/seasons"
+					},
+					"response": []
+				},
+				{
+					"name": "/episodes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serieId\": 24,\r\n  \"seasonNumber\": 3,\r\n  \"title\": \"Pilot\",\r\n  \"episodeNumber\": 1,\r\n  \"duration\": 33\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/episodes"
+					},
+					"response": []
+				},
+				{
+					"name": "/episodes/:id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"watched\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/episodes/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/films (titre manquant)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"genre\": \"Action\", \r\n  \"year\": 2020,\r\n  \"rating\": 8.0,\r\n  \"platform\": \"Netflix\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/films"
+					},
+					"response": []
+				},
+				{
+					"name": "/films (titre invalide)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Th3 9ark Kn1gh)\",\r\n  \"genre\": \"Action\",\r\n  \"year\": 2008,\r\n  \"rating\": 9.0,\r\n  \"platform\" : \"Disney\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/films"
+					},
+					"response": []
+				},
+				{
+					"name": "/films (année future)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"The Dark Knight\",\r\n  \"genre\": \"Action\",\r\n  \"year\": 2027,\r\n  \"rating\": 9.0,\r\n  \"platform\" : \"Disney\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/films"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "routes",
+			"item": [
+				{
+					"name": "/api/medias",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alice\"\r\n}\r\n"
+						},
+						"url": "http://localhost:3000/api/medias"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/medias/3"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/medias"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/media/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/media/4"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/medias/3"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/series/:id/episodes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/series/27/episodes"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/:id/medias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/users/2/medias"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

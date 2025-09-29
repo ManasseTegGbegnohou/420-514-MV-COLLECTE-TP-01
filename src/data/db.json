@@ -176,16 +176,6 @@
       "watched": false
     },
     {
-      "id": 3,
-      "type": "Film",
-      "title": "Interstellar",
-      "genre": "Sci-Fi",
-      "year": 2014,
-      "rating": 8.6,
-      "duration": 169,
-      "watched": false
-    },
-    {
       "id": 4,
       "type": "Film",
       "title": "The Matrix",
@@ -1031,6 +1021,20 @@
               "episodeNumber": 1,
               "duration": 33,
               "watched": false
+            },
+            {
+              "id": 6,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 7,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
             }
           ]
         },
@@ -1090,6 +1094,60 @@
         },
         {
           "id": 2413,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2414,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2415,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2416,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2417,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2418,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2419,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2420,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2421,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2422,
           "seasonNumber": 3,
           "releaseDate": "2023-05-10",
           "episodes": []
@@ -2043,6 +2101,159 @@
     },
     {
       "id": 54,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 55,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 56,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 57,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 58,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 59,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 60,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 61,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 62,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 63,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 64,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 65,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 66,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 67,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 68,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 69,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 70,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 71,
       "title": "Breaking Bad",
       "genre": "Drama",
       "year": 2008,
