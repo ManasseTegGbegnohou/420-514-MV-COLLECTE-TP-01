@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "c1d79598-8272-4760-bbb2-c485a23523b3",
 		"name": "420-514-MV-COLLECTE-TP-01",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48551005"
 	},
 	"item": [
@@ -21,7 +21,18 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"name\": \"Alice\"\r\n}\r\n"
 						},
-						"url": "http://localhost:3000/api/medias"
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
 					},
 					"response": []
 				},
@@ -80,7 +91,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/films"
+						"url": {
+							"raw": "http://localhost:3000/api/films",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"films"
+							]
+						}
 					},
 					"response": []
 				},
@@ -98,7 +120,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/series"
+						"url": {
+							"raw": "http://localhost:3000/api/series",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"series"
+							]
+						}
 					},
 					"response": []
 				},
@@ -116,7 +149,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/seasons"
+						"url": {
+							"raw": "http://localhost:3000/api/seasons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"seasons"
+							]
+						}
 					},
 					"response": []
 				},
@@ -134,7 +178,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/episodes"
+						"url": {
+							"raw": "http://localhost:3000/api/episodes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"episodes"
+							]
+						}
 					},
 					"response": []
 				},
@@ -152,7 +207,19 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/episodes/1"
+						"url": {
+							"raw": "http://localhost:3000/api/episodes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"episodes",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -170,7 +237,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/films"
+						"url": {
+							"raw": "http://localhost:3000/api/films",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"films"
+							]
+						}
 					},
 					"response": []
 				},
@@ -188,7 +266,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/films"
+						"url": {
+							"raw": "http://localhost:3000/api/films",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"films"
+							]
+						}
 					},
 					"response": []
 				},
@@ -206,7 +295,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/films"
+						"url": {
+							"raw": "http://localhost:3000/api/films",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"films"
+							]
+						}
 					},
 					"response": []
 				}
@@ -227,7 +327,18 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"name\": \"Alice\"\r\n}\r\n"
 						},
-						"url": "http://localhost:3000/api/medias"
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
 					},
 					"response": []
 				},
@@ -236,7 +347,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/medias/3"
+						"url": {
+							"raw": "http://localhost:3000/api/medias/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -254,7 +377,18 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/medias"
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
 					},
 					"response": []
 				},
@@ -272,7 +406,19 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/media/4"
+						"url": {
+							"raw": "http://localhost:3000/api/media/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"media",
+								"4"
+							]
+						}
 					},
 					"response": []
 				},
@@ -281,7 +427,19 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/api/medias/3"
+						"url": {
+							"raw": "http://localhost:3000/api/medias/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -290,7 +448,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/series/27/episodes"
+						"url": {
+							"raw": "http://localhost:3000/api/series/27/episodes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"series",
+								"27",
+								"episodes"
+							]
+						}
 					},
 					"response": []
 				},
@@ -299,7 +470,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/users/2/medias"
+						"url": {
+							"raw": "http://localhost:3000/api/users/2/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"2",
+								"medias"
+							]
+						}
 					},
 					"response": []
 				}
