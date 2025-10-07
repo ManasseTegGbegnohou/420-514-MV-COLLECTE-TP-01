@@ -2,7 +2,7 @@
 
 ## 📋 Description du Projet
 
-Cette backend d'application est un prototype d'API RESTful développée en Node.js avec TypeScript pour la gestion d'une bibliothèque personnelle de contenus audiovisuels (films, séries, mini-séries). Elle permet aux utilisateurs de suivre leurs habitudes de visionnement, d'organiser leur médiathèque personnelle et de générer des statistiques d'usage.
+Ce backend d'application est un prototype d'API RESTful développée en Node.js avec TypeScript pour la gestion d'une bibliothèque personnelle de contenus audiovisuels (films, séries, mini-séries). Elle permet aux utilisateurs de suivre leurs habitudes de visionnement, d'organiser leur médiathèque personnelle et de générer des statistiques d'usage.
 
 ## 🛠️ Stack Technologique
 
