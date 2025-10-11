@@ -1,4 +1,4 @@
-# Backend d'Application de Suivi de Séries et Films (En développement)
+# Backend d'Application de Suivi de Séries et Films (⚠️En développement)
 
 ## 📋 Description du Projet
 
