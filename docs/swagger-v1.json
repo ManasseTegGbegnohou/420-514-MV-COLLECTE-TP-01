@@ -1,0 +1,145 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Media Tracker API v1",
+    "version": "1.0.0",
+    "description": "API v1 for media tracking (DEPRECATED - Use v2)",
+    "deprecated": true
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/medias": {
+      "get": {
+        "summary": "Get all media",
+        "deprecated": true,
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["Film", "Serie"] },
+            "description": "Filter by type"
+          },
+          {
+            "name": "genre",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "Filter by genre"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "schema": { "type": "integer" },
+            "description": "Filter by year"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of media",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Media" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create media",
+        "deprecated": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Media" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Media created",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Media" }
+              }
+            }
+          },
+          "400": { "description": "Validation error" }
+        }
+      }
+    },
+    "/medias/{id}": {
+      "get": {
+        "summary": "Get media by ID",
+        "deprecated": true,
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Media found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Media" }
+              }
+            }
+          },
+          "404": { "description": "Media not found" }
+        }
+      }
+    },
+    "/logs": {
+      "get": {
+        "summary": "Get application logs",
+        "deprecated": true,
+        "responses": {
+          "200": {
+            "description": "Logs retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "lastAction": { "type": "string" },
+                    "timestamp": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Media": {
+        "type": "object",
+        "required": ["title", "type"],
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["Film", "Serie"] },
+          "genre": { "type": "string" },
+          "year": { "type": "integer" },
+          "rating": { "type": "number" },
+          "platform": { "type": "string" },
+          "duration": { "type": "integer" },
+          "status": { "type": "string", "enum": ["Ongoing", "Finished"] }
+        }
+      }
+    }
+  }
+}

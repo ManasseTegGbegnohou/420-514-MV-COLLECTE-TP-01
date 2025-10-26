@@ -1,0 +1,2265 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@example.com",
+      "password": "pass1",
+      "role": "admin",
+      "favorites": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "email": "user2@example.com",
+      "password": "pass2",
+      "role": "user",
+      "favorites": [
+        3,
+        6,
+        23,
+        21
+      ]
+    },
+    {
+      "id": 3,
+      "email": "user3@example.com",
+      "password": "pass3",
+      "role": "user",
+      "favorites": [
+        4,
+        7
+      ]
+    },
+    {
+      "id": 4,
+      "email": "user4@example.com",
+      "password": "pass4",
+      "role": "user",
+      "favorites": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": 5,
+      "email": "user5@example.com",
+      "password": "pass5",
+      "role": "user",
+      "favorites": [
+        6,
+        9
+      ]
+    },
+    {
+      "id": 6,
+      "email": "user6@example.com",
+      "password": "pass6",
+      "role": "user",
+      "favorites": [
+        7,
+        10
+      ]
+    },
+    {
+      "id": 7,
+      "email": "user7@example.com",
+      "password": "pass7",
+      "role": "user",
+      "favorites": [
+        8,
+        11
+      ]
+    },
+    {
+      "id": 8,
+      "email": "user8@example.com",
+      "password": "pass8",
+      "role": "user",
+      "favorites": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": 9,
+      "email": "user9@example.com",
+      "password": "pass9",
+      "role": "user",
+      "favorites": [
+        10,
+        13
+      ]
+    },
+    {
+      "id": 10,
+      "email": "user10@example.com",
+      "password": "pass10",
+      "role": "user",
+      "favorites": [
+        11,
+        14
+      ]
+    },
+    {
+      "id": 11,
+      "email": "user11@example.com",
+      "password": "pass11",
+      "role": "user",
+      "favorites": [
+        12,
+        15
+      ]
+    },
+    {
+      "id": 12,
+      "email": "user12@example.com",
+      "password": "pass12",
+      "role": "user",
+      "favorites": [
+        13,
+        16
+      ]
+    },
+    {
+      "id": 13,
+      "email": "user13@example.com",
+      "password": "pass13",
+      "role": "user",
+      "favorites": [
+        14,
+        17
+      ]
+    },
+    {
+      "id": 14,
+      "email": "user14@example.com",
+      "password": "pass14",
+      "role": "user",
+      "favorites": [
+        15,
+        18
+      ]
+    },
+    {
+      "id": 15,
+      "email": "user15@example.com",
+      "password": "pass15",
+      "role": "user",
+      "favorites": [
+        16,
+        19
+      ]
+    }
+  ],
+  "medias": [
+    {
+      "id": 1,
+      "type": "Film",
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "year": 2010,
+      "rating": 8.8,
+      "duration": 148,
+      "watched": false
+    },
+    {
+      "id": 2,
+      "type": "Film",
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "duration": 152,
+      "watched": false
+    },
+    {
+      "id": 4,
+      "type": "Film",
+      "title": "The Matrix",
+      "genre": "Sci-Fi",
+      "year": 1999,
+      "rating": 8.7,
+      "duration": 136,
+      "watched": false
+    },
+    {
+      "id": 5,
+      "type": "Film",
+      "title": "Gladiator",
+      "genre": "Historical",
+      "year": 2000,
+      "rating": 8.5,
+      "duration": 155,
+      "watched": false
+    },
+    {
+      "id": 6,
+      "type": "Film",
+      "title": "Parasite",
+      "genre": "Thriller",
+      "year": 2019,
+      "rating": 8.6,
+      "duration": 132,
+      "watched": false
+    },
+    {
+      "id": 7,
+      "type": "Film",
+      "title": "Titanic",
+      "genre": "Romance",
+      "year": 1997,
+      "rating": 7.8,
+      "duration": 195,
+      "watched": false
+    },
+    {
+      "id": 8,
+      "type": "Film",
+      "title": "Joker",
+      "genre": "Drama",
+      "year": 2019,
+      "rating": 8.4,
+      "duration": 122,
+      "watched": false
+    },
+    {
+      "id": 9,
+      "type": "Film",
+      "title": "The Godfather",
+      "genre": "Crime",
+      "year": 1972,
+      "rating": 9.2,
+      "duration": 175,
+      "watched": false
+    },
+    {
+      "id": 10,
+      "type": "Film",
+      "title": "Pulp Fiction",
+      "genre": "Crime",
+      "year": 1994,
+      "rating": 8.9,
+      "duration": 154,
+      "watched": false
+    },
+    {
+      "id": 11,
+      "type": "Film",
+      "title": "The Shawshank Redemption",
+      "genre": "Drama",
+      "year": 1994,
+      "rating": 9.3,
+      "duration": 142,
+      "watched": false
+    },
+    {
+      "id": 12,
+      "type": "Film",
+      "title": "Fight Club",
+      "genre": "Drama",
+      "year": 1999,
+      "rating": 8.8,
+      "duration": 139,
+      "watched": false
+    },
+    {
+      "id": 13,
+      "type": "Film",
+      "title": "Forrest Gump",
+      "genre": "Drama",
+      "year": 1994,
+      "rating": 8.8,
+      "duration": 142,
+      "watched": false
+    },
+    {
+      "id": 14,
+      "type": "Film",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "genre": "Fantasy",
+      "year": 2001,
+      "rating": 8.8,
+      "duration": 178,
+      "watched": false
+    },
+    {
+      "id": 15,
+      "type": "Film",
+      "title": "The Social Network",
+      "genre": "Drama",
+      "year": 2010,
+      "rating": 7.7,
+      "duration": 120,
+      "watched": false
+    },
+    {
+      "id": 16,
+      "type": "Film",
+      "title": "Whiplash",
+      "genre": "Drama",
+      "year": 2014,
+      "rating": 8.5,
+      "duration": 106,
+      "watched": false
+    },
+    {
+      "id": 17,
+      "type": "Film",
+      "title": "The Prestige",
+      "genre": "Mystery",
+      "year": 2006,
+      "rating": 8.5,
+      "duration": 130,
+      "watched": false
+    },
+    {
+      "id": 18,
+      "type": "Film",
+      "title": "Mad Max: Fury Road",
+      "genre": "Action",
+      "year": 2015,
+      "rating": 8.1,
+      "duration": 120,
+      "watched": false
+    },
+    {
+      "id": 19,
+      "type": "Film",
+      "title": "La La Land",
+      "genre": "Musical",
+      "year": 2016,
+      "rating": 8,
+      "duration": 128,
+      "watched": false
+    },
+    {
+      "id": 20,
+      "type": "Film",
+      "title": "The Revenant",
+      "genre": "Adventure",
+      "year": 2015,
+      "rating": 8,
+      "duration": 156,
+      "watched": false
+    },
+    {
+      "id": 21,
+      "type": "Serie",
+      "title": "Game of Thrones",
+      "genre": "Fantasy",
+      "year": 2011,
+      "rating": 9.3,
+      "status": "Finished",
+      "seasons": [
+        {
+          "id": 2101,
+          "seasonNumber": 1,
+          "releaseDate": "2011-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1000,
+              "title": "Winter Is Coming",
+              "episodeNumber": 1,
+              "duration": 62,
+              "watched": false
+            },
+            {
+              "id": 1001,
+              "title": "The Kingsroad",
+              "episodeNumber": 2,
+              "duration": 56,
+              "watched": false
+            },
+            {
+              "id": 1002,
+              "title": "Lord Snow",
+              "episodeNumber": 3,
+              "duration": 58,
+              "watched": false
+            },
+            {
+              "id": 1003,
+              "title": "Cripples, Bastards, and Broken Things",
+              "episodeNumber": 4,
+              "duration": 56,
+              "watched": false
+            },
+            {
+              "id": 1004,
+              "title": "The Wolf and the Lion",
+              "episodeNumber": 5,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1005,
+              "title": "A Golden Crown",
+              "episodeNumber": 6,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1006,
+              "title": "You Win or You Die",
+              "episodeNumber": 7,
+              "duration": 58,
+              "watched": false
+            },
+            {
+              "id": 1007,
+              "title": "The Pointy End",
+              "episodeNumber": 8,
+              "duration": 56,
+              "watched": false
+            },
+            {
+              "id": 1008,
+              "title": "Baelor",
+              "episodeNumber": 9,
+              "duration": 57,
+              "watched": false
+            },
+            {
+              "id": 1009,
+              "title": "Fire and Blood",
+              "episodeNumber": 10,
+              "duration": 62,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2102,
+          "seasonNumber": 2,
+          "releaseDate": "2011-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1010,
+              "title": "The North Remembers",
+              "episodeNumber": 1,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1011,
+              "title": "The Night Lands",
+              "episodeNumber": 2,
+              "duration": 54,
+              "watched": false
+            },
+            {
+              "id": 1012,
+              "title": "What Is Dead May Never Die",
+              "episodeNumber": 3,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1013,
+              "title": "Garden of Bones",
+              "episodeNumber": 4,
+              "duration": 52,
+              "watched": false
+            },
+            {
+              "id": 1014,
+              "title": "The Ghost of Harrenhal",
+              "episodeNumber": 5,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1015,
+              "title": "The Old Gods and the New",
+              "episodeNumber": 6,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1016,
+              "title": "A Man Without Honor",
+              "episodeNumber": 7,
+              "duration": 52,
+              "watched": false
+            },
+            {
+              "id": 1017,
+              "title": "The Prince of Winterfell",
+              "episodeNumber": 8,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1018,
+              "title": "Blackwater",
+              "episodeNumber": 9,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1019,
+              "title": "Valar Morghulis",
+              "episodeNumber": 10,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "Serie",
+      "title": "Breaking Bad",
+      "genre": "Crime",
+      "year": 2008,
+      "rating": 9.5,
+      "status": "Finished",
+      "seasons": [
+        {
+          "id": 2201,
+          "seasonNumber": 1,
+          "releaseDate": "2008-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1020,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 58,
+              "watched": false
+            },
+            {
+              "id": 1021,
+              "title": "Cat's in the Bag...",
+              "episodeNumber": 2,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1022,
+              "title": "...And the Bag's in the River",
+              "episodeNumber": 3,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1023,
+              "title": "Cancer Man",
+              "episodeNumber": 4,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1024,
+              "title": "Gray Matter",
+              "episodeNumber": 5,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1025,
+              "title": "Crazy Handful of Nothin'",
+              "episodeNumber": 6,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1026,
+              "title": "A No-Rough-Stuff-Type Deal",
+              "episodeNumber": 7,
+              "duration": 48,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2202,
+          "seasonNumber": 2,
+          "releaseDate": "2008-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1027,
+              "title": "Seven Thirty-Seven",
+              "episodeNumber": 1,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1028,
+              "title": "Grilled",
+              "episodeNumber": 2,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1029,
+              "title": "Bit by a Dead Bee",
+              "episodeNumber": 3,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1030,
+              "title": "Down",
+              "episodeNumber": 4,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1031,
+              "title": "Breakage",
+              "episodeNumber": 5,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1032,
+              "title": "Peekaboo",
+              "episodeNumber": 6,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1033,
+              "title": "Negro y Azul",
+              "episodeNumber": 7,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1034,
+              "title": "Better Call Saul",
+              "episodeNumber": 8,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1035,
+              "title": "4 Days Out",
+              "episodeNumber": 9,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1036,
+              "title": "Over",
+              "episodeNumber": 10,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1037,
+              "title": "Mandala",
+              "episodeNumber": 11,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1038,
+              "title": "Phoenix",
+              "episodeNumber": 12,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1039,
+              "title": "ABQ",
+              "episodeNumber": 13,
+              "duration": 47,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "Serie",
+      "title": "Stranger Things",
+      "genre": "Sci-Fi",
+      "year": 2016,
+      "rating": 8.8,
+      "status": "Ongoing",
+      "seasons": [
+        {
+          "id": 2301,
+          "seasonNumber": 1,
+          "releaseDate": "2016-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1040,
+              "title": "Chapter One: The Vanishing of Will Byers",
+              "episodeNumber": 1,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1041,
+              "title": "Chapter Two: The Weirdo on Maple Street",
+              "episodeNumber": 2,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1042,
+              "title": "Chapter Three: Holly, Jolly",
+              "episodeNumber": 3,
+              "duration": 51,
+              "watched": false
+            },
+            {
+              "id": 1043,
+              "title": "Chapter Four: The Body",
+              "episodeNumber": 4,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1044,
+              "title": "Chapter Five: The Flea and the Acrobat",
+              "episodeNumber": 5,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1045,
+              "title": "Chapter Six: The Monster",
+              "episodeNumber": 6,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1046,
+              "title": "Chapter Seven: The Bathtub",
+              "episodeNumber": 7,
+              "duration": 49,
+              "watched": false
+            },
+            {
+              "id": 1047,
+              "title": "Chapter Eight: The Upside Down",
+              "episodeNumber": 8,
+              "duration": 48,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2302,
+          "seasonNumber": 2,
+          "releaseDate": "2016-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1048,
+              "title": "Chapter One: MADMAX",
+              "episodeNumber": 1,
+              "duration": 48,
+              "watched": false
+            },
+            {
+              "id": 1049,
+              "title": "Chapter Two: Trick or Treat, Freak",
+              "episodeNumber": 2,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1050,
+              "title": "Chapter Three: The Pollywog",
+              "episodeNumber": 3,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1051,
+              "title": "Chapter Four: Will the Wise",
+              "episodeNumber": 4,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1052,
+              "title": "Chapter Five: Dig Dug",
+              "episodeNumber": 5,
+              "duration": 49,
+              "watched": false
+            },
+            {
+              "id": 1053,
+              "title": "Chapter Six: The Spy",
+              "episodeNumber": 6,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1054,
+              "title": "Chapter Seven: The Lost Sister",
+              "episodeNumber": 7,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1055,
+              "title": "Chapter Eight: The Mind Flayer",
+              "episodeNumber": 8,
+              "duration": 50,
+              "watched": false
+            },
+            {
+              "id": 1056,
+              "title": "Chapter Nine: The Gate",
+              "episodeNumber": 9,
+              "duration": 51,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "type": "Serie",
+      "title": "The Office (US)",
+      "genre": "Comedy",
+      "year": 2005,
+      "rating": 8.9,
+      "status": "Finished",
+      "seasons": [
+        {
+          "id": 2401,
+          "seasonNumber": 1,
+          "releaseDate": "2005-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1057,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 23,
+              "watched": false
+            },
+            {
+              "id": 1058,
+              "title": "Diversity Day",
+              "episodeNumber": 2,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1059,
+              "title": "Health Care",
+              "episodeNumber": 3,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1060,
+              "title": "The Alliance",
+              "episodeNumber": 4,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1061,
+              "title": "Basketball",
+              "episodeNumber": 5,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1062,
+              "title": "Hot Girl",
+              "episodeNumber": 6,
+              "duration": 22,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2402,
+          "seasonNumber": 2,
+          "releaseDate": "2005-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1063,
+              "title": "The Dundies",
+              "episodeNumber": 1,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1064,
+              "title": "Sexual Harassment",
+              "episodeNumber": 2,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1065,
+              "title": "Office Olympics",
+              "episodeNumber": 3,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1066,
+              "title": "The Fire",
+              "episodeNumber": 4,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1067,
+              "title": "Halloween",
+              "episodeNumber": 5,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1068,
+              "title": "The Fight",
+              "episodeNumber": 6,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1069,
+              "title": "The Client",
+              "episodeNumber": 7,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1070,
+              "title": "Performance Review",
+              "episodeNumber": 8,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1071,
+              "title": "E-Mail Surveillance",
+              "episodeNumber": 9,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1072,
+              "title": "Christmas Party",
+              "episodeNumber": 10,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1073,
+              "title": "Booze Cruise",
+              "episodeNumber": 11,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1074,
+              "title": "The Injury",
+              "episodeNumber": 12,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1075,
+              "title": "Conflict Resolution",
+              "episodeNumber": 13,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1076,
+              "title": "Casino Night",
+              "episodeNumber": 14,
+              "duration": 22,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2403,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": [
+            {
+              "id": 1,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 2,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 3,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 4,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 5,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 6,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            },
+            {
+              "id": 7,
+              "title": "Pilot",
+              "episodeNumber": 1,
+              "duration": 33,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2404,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2405,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2406,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2407,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2408,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2409,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2410,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2411,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2412,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2413,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2414,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2415,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2416,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2417,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2418,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2419,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2420,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2421,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        },
+        {
+          "id": 2422,
+          "seasonNumber": 3,
+          "releaseDate": "2023-05-10",
+          "episodes": []
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "type": "Serie",
+      "title": "The Witcher",
+      "genre": "Fantasy",
+      "year": 2019,
+      "rating": 8.2,
+      "status": "Ongoing",
+      "seasons": [
+        {
+          "id": 2501,
+          "seasonNumber": 1,
+          "releaseDate": "2019-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1077,
+              "title": "The End's Beginning",
+              "episodeNumber": 1,
+              "duration": 63,
+              "watched": false
+            },
+            {
+              "id": 1078,
+              "title": "Four Marks",
+              "episodeNumber": 2,
+              "duration": 58,
+              "watched": false
+            },
+            {
+              "id": 1079,
+              "title": "Betrayer Moon",
+              "episodeNumber": 3,
+              "duration": 47,
+              "watched": false
+            },
+            {
+              "id": 1080,
+              "title": "Of Banquets, Bastards and Burials",
+              "episodeNumber": 4,
+              "duration": 60,
+              "watched": false
+            },
+            {
+              "id": 1081,
+              "title": "Bottled Appetites",
+              "episodeNumber": 5,
+              "duration": 60,
+              "watched": false
+            },
+            {
+              "id": 1082,
+              "title": "Rare Species",
+              "episodeNumber": 6,
+              "duration": 62,
+              "watched": false
+            },
+            {
+              "id": 1083,
+              "title": "Before a Fall",
+              "episodeNumber": 7,
+              "duration": 44,
+              "watched": false
+            },
+            {
+              "id": 1084,
+              "title": "Much More",
+              "episodeNumber": 8,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2502,
+          "seasonNumber": 2,
+          "releaseDate": "2019-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1085,
+              "title": "A Grain of Truth",
+              "episodeNumber": 1,
+              "duration": 59,
+              "watched": false
+            },
+            {
+              "id": 1086,
+              "title": "Kaer Morhen",
+              "episodeNumber": 2,
+              "duration": 63,
+              "watched": false
+            },
+            {
+              "id": 1087,
+              "title": "What Is Lost",
+              "episodeNumber": 3,
+              "duration": 57,
+              "watched": false
+            },
+            {
+              "id": 1088,
+              "title": "Redanian Intelligence",
+              "episodeNumber": 4,
+              "duration": 59,
+              "watched": false
+            },
+            {
+              "id": 1089,
+              "title": "Turn Your Back",
+              "episodeNumber": 5,
+              "duration": 60,
+              "watched": false
+            },
+            {
+              "id": 1090,
+              "title": "Dear Friend...",
+              "episodeNumber": 6,
+              "duration": 60,
+              "watched": false
+            },
+            {
+              "id": 1091,
+              "title": "Voleth Meir",
+              "episodeNumber": 7,
+              "duration": 70,
+              "watched": false
+            },
+            {
+              "id": 1092,
+              "title": "Family",
+              "episodeNumber": 8,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "type": "Serie",
+      "title": "Friends",
+      "genre": "Comedy",
+      "year": 1994,
+      "rating": 8.9,
+      "status": "Finished",
+      "seasons": [
+        {
+          "id": 2601,
+          "seasonNumber": 1,
+          "releaseDate": "1994-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1093,
+              "title": "The One Where Monica Gets a Roommate",
+              "episodeNumber": 1,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1094,
+              "title": "The One with the Sonogram at the End",
+              "episodeNumber": 2,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1095,
+              "title": "The One with the Thumb",
+              "episodeNumber": 3,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1096,
+              "title": "The One with George Stephanopoulos",
+              "episodeNumber": 4,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1097,
+              "title": "The One with the East German Laundry Detergent",
+              "episodeNumber": 5,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1098,
+              "title": "The One with the Butt",
+              "episodeNumber": 6,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1099,
+              "title": "The One with the Blackout",
+              "episodeNumber": 7,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1100,
+              "title": "The One Where Nana Dies Twice",
+              "episodeNumber": 8,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1101,
+              "title": "The One Where Underdog Gets Away",
+              "episodeNumber": 9,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1102,
+              "title": "The One with the Monkey",
+              "episodeNumber": 10,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1103,
+              "title": "The One with Mrs. Bing",
+              "episodeNumber": 11,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1104,
+              "title": "The One with the Dozen Lasagnas",
+              "episodeNumber": 12,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1105,
+              "title": "The One with the Boobies",
+              "episodeNumber": 13,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1106,
+              "title": "The One with the Candy Hearts",
+              "episodeNumber": 14,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1107,
+              "title": "The One with the Stoned Guy",
+              "episodeNumber": 15,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1108,
+              "title": "The One with Two Parts: Part 1",
+              "episodeNumber": 16,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1109,
+              "title": "The One with Two Parts: Part 2",
+              "episodeNumber": 17,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1110,
+              "title": "The One with All the Poker",
+              "episodeNumber": 18,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1111,
+              "title": "The One Where the Monkey Gets Away",
+              "episodeNumber": 19,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1112,
+              "title": "The One with the Evil Orthodontist",
+              "episodeNumber": 20,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1113,
+              "title": "The One with the Fake Monica",
+              "episodeNumber": 21,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1114,
+              "title": "The One with the Ick Factor",
+              "episodeNumber": 22,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1115,
+              "title": "The One with the Birth",
+              "episodeNumber": 23,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1116,
+              "title": "The One Where Rachel Finds Out",
+              "episodeNumber": 24,
+              "duration": 22,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2602,
+          "seasonNumber": 2,
+          "releaseDate": "1994-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1117,
+              "title": "The One with Ross's New Girlfriend",
+              "episodeNumber": 1,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1118,
+              "title": "The One with the Breast Milk",
+              "episodeNumber": 2,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1119,
+              "title": "The One Where Heckles Dies",
+              "episodeNumber": 3,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1120,
+              "title": "The One with Phoebe's Husband",
+              "episodeNumber": 4,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1121,
+              "title": "The One with Five Steaks and an Eggplant",
+              "episodeNumber": 5,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1122,
+              "title": "The One with the Baby on the Bus",
+              "episodeNumber": 6,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1123,
+              "title": "The One Where Ross Finds Out",
+              "episodeNumber": 7,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1124,
+              "title": "The One with the List",
+              "episodeNumber": 8,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1125,
+              "title": "The One with Phoebe's Dad",
+              "episodeNumber": 9,
+              "duration": 22,
+              "watched": false
+            },
+            {
+              "id": 1126,
+              "title": "The One with Russ",
+              "episodeNumber": 10,
+              "duration": 22,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "type": "Serie",
+      "title": "Sherlock",
+      "genre": "Mystery",
+      "year": 2010,
+      "rating": 9.1,
+      "status": "Finished",
+      "seasons": [
+        {
+          "id": 2701,
+          "seasonNumber": 1,
+          "releaseDate": "2010-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1127,
+              "title": "A Study in Pink",
+              "episodeNumber": 1,
+              "duration": 90,
+              "watched": false
+            },
+            {
+              "id": 1128,
+              "title": "The Blind Banker",
+              "episodeNumber": 2,
+              "duration": 90,
+              "watched": false
+            },
+            {
+              "id": 1129,
+              "title": "The Great Game",
+              "episodeNumber": 3,
+              "duration": 90,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2702,
+          "seasonNumber": 2,
+          "releaseDate": "2010-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1130,
+              "title": "A Scandal in Belgravia",
+              "episodeNumber": 1,
+              "duration": 90,
+              "watched": false
+            },
+            {
+              "id": 1131,
+              "title": "The Hounds of Baskerville",
+              "episodeNumber": 2,
+              "duration": 90,
+              "watched": false
+            },
+            {
+              "id": 1132,
+              "title": "The Reichenbach Fall",
+              "episodeNumber": 3,
+              "duration": 90,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "type": "Serie",
+      "title": "The Mandalorian",
+      "genre": "Sci-Fi",
+      "year": 2019,
+      "rating": 8.8,
+      "status": "Ongoing",
+      "seasons": [
+        {
+          "id": 2801,
+          "seasonNumber": 1,
+          "releaseDate": "2019-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1133,
+              "title": "Chapter 1: The Mandalorian",
+              "episodeNumber": 1,
+              "duration": 40,
+              "watched": false
+            },
+            {
+              "id": 1134,
+              "title": "Chapter 2: The Child",
+              "episodeNumber": 2,
+              "duration": 32,
+              "watched": false
+            },
+            {
+              "id": 1135,
+              "title": "Chapter 3: The Sin",
+              "episodeNumber": 3,
+              "duration": 38,
+              "watched": false
+            },
+            {
+              "id": 1136,
+              "title": "Chapter 4: Sanctuary",
+              "episodeNumber": 4,
+              "duration": 38,
+              "watched": false
+            },
+            {
+              "id": 1137,
+              "title": "Chapter 5: The Gunslinger",
+              "episodeNumber": 5,
+              "duration": 30,
+              "watched": false
+            },
+            {
+              "id": 1138,
+              "title": "Chapter 6: The Prisoner",
+              "episodeNumber": 6,
+              "duration": 46,
+              "watched": false
+            },
+            {
+              "id": 1139,
+              "title": "Chapter 7: The Reckoning",
+              "episodeNumber": 7,
+              "duration": 41,
+              "watched": false
+            },
+            {
+              "id": 1140,
+              "title": "Chapter 8: Redemption",
+              "episodeNumber": 8,
+              "duration": 46,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2802,
+          "seasonNumber": 2,
+          "releaseDate": "2019-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1141,
+              "title": "Chapter 9: The Marshal",
+              "episodeNumber": 1,
+              "duration": 45,
+              "watched": false
+            },
+            {
+              "id": 1142,
+              "title": "Chapter 10: The Passenger",
+              "episodeNumber": 2,
+              "duration": 43,
+              "watched": false
+            },
+            {
+              "id": 1143,
+              "title": "Chapter 11: The Heiress",
+              "episodeNumber": 3,
+              "duration": 43,
+              "watched": false
+            },
+            {
+              "id": 1144,
+              "title": "Chapter 12: The Siege",
+              "episodeNumber": 4,
+              "duration": 38,
+              "watched": false
+            },
+            {
+              "id": 1145,
+              "title": "Chapter 13: The Jedi",
+              "episodeNumber": 5,
+              "duration": 43,
+              "watched": false
+            },
+            {
+              "id": 1146,
+              "title": "Chapter 14: The Tragedy",
+              "episodeNumber": 6,
+              "duration": 46,
+              "watched": false
+            },
+            {
+              "id": 1147,
+              "title": "Chapter 15: The Believer",
+              "episodeNumber": 7,
+              "duration": 39,
+              "watched": false
+            },
+            {
+              "id": 1148,
+              "title": "Chapter 16: The Rescue",
+              "episodeNumber": 8,
+              "duration": 47,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "Serie",
+      "title": "Westworld",
+      "genre": "drama",
+      "year": 2020,
+      "rating": 8.7,
+      "status": "Ongoing",
+      "seasons": [
+        {
+          "id": 2901,
+          "seasonNumber": 1,
+          "releaseDate": "2016-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1149,
+              "title": "The Original",
+              "episodeNumber": 1,
+              "duration": 68,
+              "watched": false
+            },
+            {
+              "id": 1150,
+              "title": "Chestnut",
+              "episodeNumber": 2,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1151,
+              "title": "The Stray",
+              "episodeNumber": 3,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1152,
+              "title": "Dissonance Theory",
+              "episodeNumber": 4,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 2902,
+          "seasonNumber": 2,
+          "releaseDate": "2016-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1153,
+              "title": "Journey into Night",
+              "episodeNumber": 1,
+              "duration": 60,
+              "watched": false
+            },
+            {
+              "id": 1154,
+              "title": "Reunion",
+              "episodeNumber": 2,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1155,
+              "title": "Virtù e Fortuna",
+              "episodeNumber": 3,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "Serie",
+      "title": "The Crown",
+      "genre": "Drama",
+      "year": 2016,
+      "rating": 8.7,
+      "status": "Ongoing",
+      "seasons": [
+        {
+          "id": 3001,
+          "seasonNumber": 1,
+          "releaseDate": "2016-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1156,
+              "title": "Wolferton Splash",
+              "episodeNumber": 1,
+              "duration": 53,
+              "watched": false
+            },
+            {
+              "id": 1157,
+              "title": "Hyde Park Corner",
+              "episodeNumber": 2,
+              "duration": 56,
+              "watched": false
+            },
+            {
+              "id": 1158,
+              "title": "Windsor",
+              "episodeNumber": 3,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        },
+        {
+          "id": 3002,
+          "seasonNumber": 2,
+          "releaseDate": "2016-01-01T00:00:00.000Z",
+          "episodes": [
+            {
+              "id": 1159,
+              "title": "Misadventure",
+              "episodeNumber": 1,
+              "duration": 55,
+              "watched": false
+            },
+            {
+              "id": 1160,
+              "title": "A Company of Men",
+              "episodeNumber": 2,
+              "duration": 60,
+              "watched": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 32,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2027,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 33,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 34,
+      "title": "Test Film",
+      "genre": "Action",
+      "year": 2020,
+      "rating": 8,
+      "platform": "Netflix",
+      "type": "Film"
+    },
+    {
+      "id": 35,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 36,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 37,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 38,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 39,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 40,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 41,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 42,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 43,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 44,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 45,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 46,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 47,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 48,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 49,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 50,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 51,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 52,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 53,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 54,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 55,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 56,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 57,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 58,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 59,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 60,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 61,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 62,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 63,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 64,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 65,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 66,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 67,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 68,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    },
+    {
+      "id": 69,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 70,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9,
+      "platform": "Disney",
+      "type": "Film"
+    },
+    {
+      "id": 71,
+      "title": "Breaking Bad",
+      "genre": "Drama",
+      "year": 2008,
+      "rating": 9.5,
+      "platform": "Netflix",
+      "type": "Serie"
+    }
+  ]
+}

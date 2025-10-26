@@ -1,0 +1,1565 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Media Tracker API v2",
+    "version": "2.0.0",
+    "description": "Modern API with MongoDB, JWT auth, and advanced features"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v2",
+      "description": "Development server"
+    }
+  ],
+  "security": [{ "bearerAuth": [] }],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Register new user",
+        "description": "Create a new user account with email, username, and password. Returns JWT token for authentication.",
+        "tags": ["Auth"],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserRegistration" },
+              "example": {
+                "email": "john.doe@example.com",
+                "username": "johndoe",
+                "password": "securepassword123"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AuthResponse" },
+                "example": {
+                  "message": "User registered successfully",
+                  "user": {
+                    "id": "id0001",
+                    "email": "john.doe@example.com",
+                    "username": "johndoe",
+                    "role": "user",
+                    "favorites": []
+                  },
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "409": { "description": "User already exists" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login user",
+        "description": "Authenticate user with email and password. Returns JWT token for API access.",
+        "tags": ["Auth"],
+        "security": [],
+        "requestBody": {
+          "required": true,
+            "content": {
+              "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserLogin" },
+              "example": {
+                "email": "john.doe@example.com",
+                "password": "securepassword123"
+                }
+              }
+            }
+          },
+        "responses": {
+          "200": { 
+            "description": "Login successful", 
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AuthResponse" },
+                "example": {
+                  "message": "Login successful",
+                  "user": {
+                    "id": "id0001",
+                    "email": "john.doe@example.com",
+                    "username": "johndoe",
+                    "role": "user",
+                    "favorites": []
+                  },
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                }
+              } 
+            } 
+          },
+          "401": { "description": "Invalid credentials" }
+        }
+      }
+    },
+    "/users/me": {
+      "get": {
+        "summary": "Get current user profile",
+        "description": "Retrieve the profile of the currently authenticated user.",
+        "tags": ["Users"],
+        "responses": {
+          "200": { 
+            "description": "User profile retrieved successfully", 
+            "content": { 
+              "application/json": { 
+                "schema": { "$ref": "#/components/schemas/User" },
+                "example": {
+                  "id": "id0001",
+                  "email": "john.doe@example.com",
+                  "username": "johndoe",
+                  "role": "user",
+                  "favorites": ["id0001", "id0002"]
+          }
+        }
+      }
+    },
+          "401": { "description": "Unauthorized - Invalid or missing token" }
+        }
+      },
+      "patch": {
+        "summary": "Update current user profile",
+        "description": "Update the profile of the currently authenticated user (username and favorites only).",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserUpdate" },
+              "example": {
+                "username": "newusername",
+                "favorites": ["id0001", "id0002", "id0003"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { 
+            "description": "Profile updated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Profile updated successfully",
+                  "user": {
+                    "id": "id0001",
+                    "email": "john.doe@example.com",
+                    "username": "newusername",
+                    "role": "user",
+                    "favorites": ["id0001", "id0002", "id0003"]
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get user by ID (admin only)",
+        "description": "Retrieve user details by ID. Admin access required.",
+        "tags": ["Users"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+          "required": true,
+            "schema": { "type": "string" },
+            "description": "User ID",
+            "example": "id0005"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "User found",
+          "content": {
+            "application/json": {
+                "example": {
+                  "id": "id0001",
+                  "email": "john.doe@example.com",
+                  "username": "johndoe",
+                  "role": "user"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "User not found",
+                  "code": "USER_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update user (admin)",
+        "description": "Update an existing user. Admin access required.",
+        "tags": ["Users"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "User ID",
+            "example": "id0005"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserUpdate" },
+              "example": {
+                "username": "newusername",
+                "role": "admin",
+                "favorites": ["id0001", "id0002", "id0003"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User updated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "id0001",
+                  "email": "john.doe@example.com",
+                  "username": "newusername",
+                  "role": "admin"
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "User not found",
+                  "code": "USER_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete user (admin)",
+        "description": "Delete an existing user. Admin access required.",
+        "tags": ["Users"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "User ID",
+            "example": "id0005"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "User deleted successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "User deleted successfully"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "User not found",
+                  "code": "USER_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies": {
+      "get": {
+        "summary": "Get movies with pagination and filtering",
+        "description": "Retrieve movies with pagination, filtering by title, genre, year, and duration. Default: 20 items per page, max 200.",
+        "tags": ["Movies"],
+        "security": [],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": { "type": "string" }, 
+            "description": "Filter by title (case-insensitive)",
+            "example": "Avengers"
+          },
+          {
+            "name": "genre",
+            "in": "query",
+            "schema": { "type": "string" }, 
+            "description": "Filter by genre",
+            "example": "Action"
+          },
+          { 
+            "name": "minYear", 
+            "in": "query", 
+            "schema": { "type": "integer" }, 
+            "description": "Filter by minimum release year",
+            "example": 2020
+          },
+          { 
+            "name": "maxYear", 
+            "in": "query", 
+            "schema": { "type": "integer" }, 
+            "description": "Filter by maximum release year",
+            "example": 2024
+          },
+          { 
+            "name": "minDuration", 
+            "in": "query", 
+            "schema": { "type": "integer" }, 
+            "description": "Filter by minimum duration (minutes)",
+            "example": 90
+          },
+          { 
+            "name": "maxDuration", 
+            "in": "query", 
+            "schema": { "type": "integer" }, 
+            "description": "Filter by maximum duration (minutes)",
+            "example": 180
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": { "type": "integer", "default": 1, "minimum": 1 }, 
+            "description": "Page number (starts at 1)",
+            "example": 1
+          },
+          { 
+            "name": "limit", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 20, "minimum": 1, "maximum": 200 }, 
+            "description": "Number of items per page (max 200)",
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Paginated movies list", 
+            "content": { 
+              "application/json": { 
+                "schema": { "$ref": "#/components/schemas/MovieList" },
+                "example": {
+                  "items": [
+                    {
+                      "_id": "id0001",
+                      "title": "The Avengers",
+                      "genres": ["Action", "Adventure", "Sci-Fi"],
+                      "synopsis": "Earth's mightiest heroes must come together...",
+                      "releaseDate": "2012-05-04T00:00:00.000Z",
+                      "durationMin": 143,
+                      "createdAt": "2023-09-01T10:00:00.000Z"
+                    }
+                  ],
+                  "total": 150,
+                  "page": 1,
+                  "pages": 8,
+                  "limit": 20
+                }
+              } 
+            } 
+          }
+        }
+      },
+      "post": {
+        "summary": "Create movie (admin)",
+        "tags": ["Movies"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Movie" }
+            }
+          }
+        },
+        "responses": {
+          "201": { 
+            "description": "Movie created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0001",
+                  "title": "The Avengers",
+                  "genres": ["Action", "Adventure", "Sci-Fi"],
+                  "synopsis": "Earth's mightiest heroes must come together...",
+                  "releaseDate": "2012-05-04T00:00:00.000Z",
+                  "durationMin": 143,
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" }
+        }
+      }
+    },
+    "/movies/{id}": {
+      "get": {
+        "summary": "Get movie by ID",
+        "tags": ["Movies"],
+        "security": [],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Movie found successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0001",
+                  "title": "The Avengers",
+                  "genres": ["Action", "Adventure", "Sci-Fi"],
+                  "synopsis": "Earth's mightiest heroes must come together...",
+                  "releaseDate": "2012-05-04T00:00:00.000Z",
+                  "durationMin": 143,
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "404": { 
+            "description": "Movie not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Movie not found",
+                  "code": "MOVIE_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update movie (admin)",
+        "description": "Update an existing movie. Admin access required.",
+        "tags": ["Movies"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Movie ID",
+            "example": "id0001"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Movie" },
+              "example": {
+                "title": "The Avengers (Updated)",
+                "genres": ["Action", "Adventure", "Sci-Fi", "Fantasy"],
+                "synopsis": "Updated synopsis for The Avengers...",
+                "durationMin": 150
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { 
+            "description": "Movie updated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0001",
+                  "title": "The Avengers (Updated)",
+                  "genres": ["Action", "Adventure", "Sci-Fi", "Fantasy"],
+                  "synopsis": "Updated synopsis for The Avengers...",
+                  "releaseDate": "2012-05-04T00:00:00.000Z",
+                  "durationMin": 150,
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "Movie not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Movie not found",
+                  "code": "MOVIE_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete movie (admin)",
+        "description": "Delete an existing movie. Admin access required.",
+        "tags": ["Movies"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Movie ID",
+            "example": "id0001"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Movie deleted successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Movie deleted successfully"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "Movie not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Movie not found",
+                  "code": "MOVIE_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series": {
+      "get": {
+        "summary": "Get series with pagination and filtering",
+        "description": "Retrieve series with pagination, filtering by title, genre, and status. Default: 20 items per page, max 200.",
+        "tags": ["Series"],
+        "security": [],
+        "parameters": [
+          { 
+            "name": "title", 
+            "in": "query", 
+            "schema": { "type": "string" },
+            "description": "Filter by title (case-insensitive)",
+            "example": "Breaking Bad"
+          },
+          { 
+            "name": "genre", 
+            "in": "query", 
+            "schema": { "type": "string" },
+            "description": "Filter by genre",
+            "example": "Drama"
+          },
+          { 
+            "name": "status", 
+            "in": "query", 
+            "schema": { "type": "string", "enum": ["ongoing", "ended"] },
+            "description": "Filter by series status",
+            "example": "ended"
+          },
+          { 
+            "name": "page", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 1, "minimum": 1 },
+            "description": "Page number (starts at 1)",
+            "example": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": { "type": "integer", "default": 20, "minimum": 1, "maximum": 200 },
+            "description": "Number of items per page (max 200)",
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Paginated series list",
+            "content": {
+              "application/json": {
+                "example": {
+                  "items": [
+                    {
+                      "_id": "id0002",
+                      "title": "Breaking Bad",
+                      "genres": ["Drama", "Crime", "Thriller"],
+                      "status": "ended",
+                      "createdAt": "2023-09-01T10:00:00.000Z"
+                    }
+                  ],
+                  "total": 75,
+                  "page": 1,
+                  "pages": 4,
+                  "limit": 20
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create series (admin)",
+        "tags": ["Series"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Series" }
+            }
+          }
+        },
+        "responses": {
+          "201": { 
+            "description": "Series created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0002",
+                  "title": "Breaking Bad",
+                  "genres": ["Drama", "Crime", "Thriller"],
+                  "status": "ended",
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" }
+        }
+      }
+    },
+    "/series/{id}": {
+      "get": {
+        "summary": "Get series by ID",
+        "description": "Retrieve a specific series by ID.",
+        "tags": ["Series"],
+        "security": [],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Series found successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0002",
+                  "title": "Breaking Bad",
+                  "genres": ["Drama", "Crime", "Thriller"],
+                  "status": "ended",
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "404": { 
+            "description": "Series not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Series not found",
+                  "code": "SERIES_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update series (admin)",
+        "description": "Update an existing series. Admin access required.",
+        "tags": ["Series"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Series" },
+              "example": {
+                "title": "Breaking Bad (Updated)",
+                "genres": ["Drama", "Crime", "Thriller", "Dark Comedy"],
+                "status": "ended"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { 
+            "description": "Series updated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0002",
+                  "title": "Breaking Bad (Updated)",
+                  "genres": ["Drama", "Crime", "Thriller", "Dark Comedy"],
+                  "status": "ended",
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "Series not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Series not found",
+                  "code": "SERIES_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete series (admin)",
+        "description": "Delete an existing series. Admin access required.",
+        "tags": ["Series"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Series deleted successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Series deleted successfully"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { 
+            "description": "Series not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Series not found",
+                  "code": "SERIES_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/{seriesId}/seasons": {
+      "get": {
+        "summary": "Get seasons for a series",
+        "description": "Retrieve all seasons for a specific series with pagination.",
+        "tags": ["Series"],
+        "security": [],
+        "parameters": [
+          { 
+            "name": "seriesId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          },
+          { 
+            "name": "page", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 1, "minimum": 1 },
+            "description": "Page number (starts at 1)",
+            "example": 1
+          },
+          { 
+            "name": "limit", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 20, "minimum": 1, "maximum": 200 },
+            "description": "Number of items per page (max 200)",
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Paginated seasons list",
+            "content": {
+              "application/json": {
+                "example": {
+                  "items": [
+                    {
+                      "_id": "id0003",
+                      "seriesId": "id0002",
+                      "seasonNo": 1,
+                      "episodes": 10
+                    }
+                  ],
+                  "total": 5,
+                  "page": 1,
+                  "pages": 1,
+                  "limit": 20
+                }
+              }
+            }
+          },
+          "404": { "description": "Series not found" }
+        }
+      },
+      "post": {
+        "summary": "Create season (admin)",
+        "description": "Create a new season for a specific series. Admin access required.",
+        "tags": ["Series"],
+        "parameters": [
+          { 
+            "name": "seriesId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Season" },
+              "example": {
+                "seasonNo": 1,
+                "episodes": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Season created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0003",
+                  "seriesId": "id0002",
+                  "seasonNo": 1,
+                  "episodes": 10
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { "description": "Series not found" },
+          "409": { "description": "Season already exists" }
+        }
+      }
+    },
+    "/series/{seriesId}/seasons/{seasonId}/episodes": {
+      "get": {
+        "summary": "Get episodes with pagination and filtering",
+        "description": "Retrieve episodes for a specific season with pagination and duration filtering. Default: 20 items per page, max 200.",
+        "tags": ["Series"],
+        "security": [],
+        "parameters": [
+          { 
+            "name": "seriesId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          },
+          { 
+            "name": "seasonId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Season ID",
+            "example": "id0003"
+          },
+          { 
+            "name": "minDuration", 
+            "in": "query", 
+            "schema": { "type": "integer" },
+            "description": "Filter by minimum duration (minutes)",
+            "example": 40
+          },
+          { 
+            "name": "maxDuration", 
+            "in": "query", 
+            "schema": { "type": "integer" },
+            "description": "Filter by maximum duration (minutes)",
+            "example": 60
+          },
+          { 
+            "name": "page", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 1, "minimum": 1 },
+            "description": "Page number (starts at 1)",
+            "example": 1
+          },
+          { 
+            "name": "limit", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 20, "minimum": 1, "maximum": 200 },
+            "description": "Number of items per page (max 200)",
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Paginated episodes list",
+            "content": {
+              "application/json": {
+                "example": {
+                  "items": [
+                    {
+                      "_id": "id0004",
+                      "epNo": 1,
+                      "title": "Pilot",
+                      "durationMin": 58,
+                      "seasonId": "id0003",
+                      "createdAt": "2023-09-01T10:00:00.000Z"
+                    }
+                  ],
+                  "total": 13,
+                  "page": 1,
+                  "pages": 1,
+                  "limit": 20
+                }
+              }
+            }
+          },
+          "404": { "description": "Series or season not found" }
+        }
+      },
+      "post": {
+        "summary": "Create episode (admin)",
+        "description": "Create a new episode for a specific season. Admin access required.",
+        "tags": ["Series"],
+        "parameters": [
+          { 
+            "name": "seriesId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          },
+          { 
+            "name": "seasonId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Season ID",
+            "example": "id0003"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+            "content": {
+              "application/json": {
+              "schema": { "$ref": "#/components/schemas/Episode" },
+              "example": {
+                "epNo": 1,
+                "title": "Pilot",
+                "durationMin": 45
+                }
+              }
+            }
+          },
+        "responses": {
+          "201": { 
+            "description": "Episode created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0004",
+                  "seriesId": "id0002",
+                  "seasonId": "id0003",
+                  "epNo": 1,
+                  "title": "Pilot",
+                      "durationMin": 45
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Admin access required" },
+          "404": { "description": "Series or season not found" },
+          "409": { "description": "Episode already exists" }
+        }
+      }
+    },
+    "/series/{seriesId}/seasons/{seasonId}/episodes/{episodeId}": {
+      "get": {
+        "summary": "Get episode by ID",
+        "description": "Retrieve a specific episode by ID for a season.",
+        "tags": ["Series"],
+        "security": [],
+        "parameters": [
+          { 
+            "name": "seriesId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          },
+          { 
+            "name": "seasonId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Season ID",
+            "example": "id0003"
+          },
+          { 
+            "name": "episodeId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Episode ID",
+            "example": "id0004"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Episode found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0004",
+                  "seriesId": "id0002",
+                  "seasonId": "id0003",
+                  "epNo": 1,
+                  "title": "Pilot",
+                      "durationMin": 45
+                }
+              }
+            }
+          },
+          "404": { "description": "Episode not found" }
+        }
+      }
+    },
+    "/ratings": {
+      "get": {
+        "summary": "Get ratings with pagination and filtering",
+        "description": "Retrieve ratings with pagination and filtering by target type and user. Default: 20 items per page, max 200.",
+        "tags": ["Ratings"],
+        "parameters": [
+          { 
+            "name": "target", 
+            "in": "query", 
+            "schema": { "type": "string", "enum": ["movie", "episode"] },
+            "description": "Filter by target type",
+            "example": "movie"
+          },
+          { 
+            "name": "targetId", 
+            "in": "query", 
+            "schema": { "type": "string" },
+            "description": "Filter by target ID",
+            "example": "id0001"
+          },
+          { 
+            "name": "userId", 
+            "in": "query", 
+            "schema": { "type": "string" },
+            "description": "Filter by user ID",
+            "example": "id0005"
+          },
+          { 
+            "name": "minScore", 
+            "in": "query", 
+            "schema": { "type": "number", "minimum": 0, "maximum": 10 },
+            "description": "Filter by minimum score",
+            "example": 7.0
+          },
+          { 
+            "name": "maxScore", 
+            "in": "query", 
+            "schema": { "type": "number", "minimum": 0, "maximum": 10 },
+            "description": "Filter by maximum score",
+            "example": 10.0
+          },
+          { 
+            "name": "page", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 1, "minimum": 1 },
+            "description": "Page number (starts at 1)",
+            "example": 1
+          },
+          { 
+            "name": "limit", 
+            "in": "query", 
+            "schema": { "type": "integer", "default": 20, "minimum": 1, "maximum": 200 },
+            "description": "Number of items per page (max 200)",
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Paginated ratings list",
+            "content": {
+              "application/json": {
+                "example": {
+                  "items": [
+                    {
+                      "_id": "id0006",
+                      "userId": "id0005",
+                      "target": "movie",
+                      "targetId": "id0001",
+                      "score": 8.5,
+                      "createdAt": "2023-09-01T10:00:00.000Z"
+                    }
+                  ],
+                  "total": 150,
+                  "page": 1,
+                  "pages": 8,
+                  "limit": 20
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create rating",
+        "description": "Create a new rating for a movie or episode. User must be authenticated.",
+        "tags": ["Ratings"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Rating" },
+              "example": {
+                "target": "movie",
+                "targetId": "id0001",
+                "score": 8.5,
+                "review": "Great movie with excellent action sequences!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Rating created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Rating created successfully",
+                  "rating": {
+                    "_id": "id0006",
+                    "userId": "id0005",
+                    "target": "movie",
+                    "targetId": "id0001",
+                    "score": 8.5,
+                    "createdAt": "2023-09-01T10:00:00.000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" }
+        }
+      }
+    },
+    "/ratings/{id}": {
+      "get": {
+        "summary": "Get rating by ID",
+        "description": "Retrieve a specific rating by ID.",
+        "tags": ["Ratings"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Rating ID",
+            "example": "id0006"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Rating found successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0006",
+                  "userId": "id0005",
+                  "target": "movie",
+                  "targetId": "id0001",
+                  "score": 8.5,
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "404": { 
+            "description": "Rating not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Rating not found",
+                  "code": "RATING_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update rating",
+        "description": "Update an existing rating. User can only update their own ratings.",
+        "tags": ["Ratings"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Rating ID",
+            "example": "id0006"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Rating" },
+              "example": {
+                "score": 9.0,
+                "review": "Updated review: Even better than I initially thought!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { 
+            "description": "Rating updated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_id": "id0006",
+                  "userId": "id0005",
+                  "target": "movie",
+                  "targetId": "id0001",
+                  "score": 9.0,
+                  "createdAt": "2023-09-01T10:00:00.000Z"
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error" },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Can only update your own ratings" },
+          "404": { 
+            "description": "Rating not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Rating not found",
+                  "code": "RATING_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete rating",
+        "description": "Delete an existing rating. User can only delete their own ratings.",
+        "tags": ["Ratings"],
+        "parameters": [
+          { 
+            "name": "id", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Rating ID",
+            "example": "id0006"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Rating deleted successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Rating deleted successfully"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized - Invalid or missing token" },
+          "403": { "description": "Forbidden - Can only delete your own ratings" },
+          "404": { 
+            "description": "Rating not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Rating not found",
+                  "code": "RATING_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ratings/avg/movie/{movieId}": {
+      "get": {
+        "summary": "Get movie average rating",
+        "description": "Calculate and return the average rating for a specific movie based on all user ratings.",
+        "tags": ["Ratings"],
+        "security": [],
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Movie ID",
+            "example": "id0001"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Average rating calculated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "movieId": "id0001",
+                  "averageRating": 8.2,
+                  "totalRatings": 15,
+                  "ratings": [
+                    { "score": 9.0 },
+                    { "score": 7.5 },
+                    { "score": 8.0 }
+                  ]
+                }
+              }
+            }
+          },
+          "404": { "description": "Movie not found" }
+        }
+      }
+    },
+    "/ratings/avg/series/{seriesId}": {
+      "get": {
+        "summary": "Get series average rating",
+        "description": "Calculate and return the average rating for a specific series based on all episode ratings.",
+        "tags": ["Ratings"],
+        "security": [],
+        "parameters": [
+          { 
+            "name": "seriesId", 
+            "in": "path", 
+            "required": true, 
+            "schema": { "type": "string" },
+            "description": "Series ID",
+            "example": "id0002"
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Average rating calculated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "seriesId": "id0002",
+                  "averageRating": 9.1,
+                  "totalRatings": 25,
+                  "episodeRatings": [
+                    { "episodeId": "id0004", "score": 9.5 },
+                    { "episodeId": "id0007", "score": 8.8 }
+                  ]
+                }
+              }
+            }
+          },
+          "404": { "description": "Series not found" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "UserRegistration": {
+        "type": "object",
+        "required": ["email", "username", "password"],
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "username": { "type": "string", "minLength": 3, "maxLength": 30 },
+          "password": { "type": "string", "minLength": 8 }
+        }
+      },
+      "UserLogin": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "password": { "type": "string" }
+        }
+      },
+      "AuthResponse": {
+        "type": "object",
+        "properties": {
+          "message": { "type": "string" },
+          "user": { "$ref": "#/components/schemas/User" },
+          "token": { "type": "string" }
+        }
+      },
+      "User": {
+            "type": "object",
+            "properties": {
+          "id": { "type": "string" },
+          "email": { "type": "string" },
+          "username": { "type": "string" },
+          "role": { "type": "string", "enum": ["user", "admin"] },
+          "favorites": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "UserUpdate": {
+        "type": "object",
+        "properties": {
+          "username": { "type": "string" },
+          "favorites": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "Movie": {
+        "type": "object",
+        "required": ["title", "genres", "durationMin"],
+        "properties": {
+          "title": { "type": "string", "maxLength": 200 },
+          "genres": { "type": "array", "items": { "type": "string" } },
+          "synopsis": { "type": "string", "maxLength": 2000 },
+          "releaseDate": { "type": "string", "format": "date" },
+          "durationMin": { "type": "integer", "minimum": 1, "maximum": 600 }
+        }
+      },
+      "MovieList": {
+        "type": "object",
+        "properties": {
+          "items": { "type": "array", "items": { "$ref": "#/components/schemas/Movie" } },
+          "total": { "type": "integer" },
+          "page": { "type": "integer" },
+          "pages": { "type": "integer" },
+          "limit": { "type": "integer" }
+        }
+      },
+      "Series": {
+        "type": "object",
+        "required": ["title", "genres"],
+        "properties": {
+          "title": { "type": "string", "maxLength": 200 },
+          "genres": { "type": "array", "items": { "type": "string" } },
+          "status": { "type": "string", "enum": ["ongoing", "ended"] }
+        }
+      },
+      "Season": {
+        "type": "object",
+        "required": ["seasonNo", "episodes"],
+        "properties": {
+          "seasonNo": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Season number"
+          },
+          "episodes": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of episodes in this season"
+          }
+        }
+      },
+      "Episode": {
+        "type": "object",
+        "required": ["epNo", "title", "durationMin"],
+        "properties": {
+          "epNo": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string", "maxLength": 200 },
+          "durationMin": { "type": "integer", "minimum": 1, "maximum": 300 }
+        }
+      },
+      "Rating": {
+        "type": "object",
+        "required": ["target", "targetId", "score"],
+        "properties": {
+          "target": { "type": "string", "enum": ["movie", "episode"] },
+          "targetId": { "type": "string" },
+          "score": { "type": "number", "minimum": 0, "maximum": 10 },
+          "review": { "type": "string", "maxLength": 2000 }
+        }
+      }
+    }
+  }
+}
