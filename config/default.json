@@ -1,0 +1,31 @@
+{
+  "app": {
+    "name": "Media Tracker API",
+    "version": "2.0.0",
+    "basePath": "/api"
+  },
+  "server": {
+    "port": 3000,
+    "trustProxy": false
+  },
+  "db": {
+    "uri": "mongodb://localhost:27017/media_dev"
+  },
+  "security": {
+    "jwt": {
+      "secret": "dev-secret-change-in-production",
+      "expiresIn": "24h"
+    },
+    "cors": {
+      "origins": ["http://localhost:4200", "http://localhost:3000"]
+    },
+    "rateLimit": {
+      "windowMs": 900000,
+      "max": 100
+    }
+  },
+  "logging": {
+    "level": "debug",
+    "format": "json"
+  }
+}

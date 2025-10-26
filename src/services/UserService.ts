@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const DBFILE = 'src/data/db.json';
+const DBFILE = 'src/data/v1/db.json';
 
 function readDatabase(): any {
     const fileContent = fs.readFileSync(DBFILE, 'utf-8');

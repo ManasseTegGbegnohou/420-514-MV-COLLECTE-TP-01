@@ -1,0 +1,1279 @@
+{
+	"info": {
+		"_postman_id": "f5548673-9943-41f3-9dfd-81509f09d590",
+		"name": "420-514-MV-COLLECTE-TP-02-Final",
+		"description": "Final API v2 collection with working authentication and realistic tests - organized by testing workflow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46939953"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "1. Authentication Setup",
+			"item": [
+				{
+					"name": "Login Admin (Get Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    const jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('adminToken', jsonData.token);",
+									"    console.log('Admin token set:', jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User (Get Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    const jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('token', jsonData.token);",
+									"    console.log('User token set:', jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me (User Profile)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/users/me",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "users", "me"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Me (User Profile)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"updateduser\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/users/me",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "users", "me"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/users/id0001",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "users", "id0001"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Movies - Public Access",
+			"item": [
+				{
+					"name": "Get All Movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movies with Pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies?page=1&limit=5",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies"],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movies with Filters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies?genre=Drama&year=1990",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies"],
+							"query": [
+								{
+									"key": "genre",
+									"value": "Drama"
+								},
+								{
+									"key": "year",
+									"value": "1990"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movie by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies/id0164",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies", "id0164"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movie by Invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies/id9999",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies", "id9999"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Movies - Admin Operations",
+			"item": [
+				{
+					"name": "Create Movie (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Test Movie\",\n  \"genres\": [\"Action\", \"Drama\"],\n  \"year\": 2024,\n  \"durationMin\": 120,\n  \"synopsis\": \"A test movie for API testing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Test Movie\",\n  \"synopsis\": \"An updated test movie\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies/id0164",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies", "id0164"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies/id0164",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies", "id0164"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. Series - Public Access",
+			"item": [
+				{
+					"name": "Get All Series",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Series with Filters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series?title=Breaking&genre=Drama&status=ongoing",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series"],
+							"query": [
+								{
+									"key": "title",
+									"value": "Breaking"
+								},
+								{
+									"key": "genre",
+									"value": "Drama"
+								},
+								{
+									"key": "status",
+									"value": "ongoing"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Seasons for Series",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id0200/seasons",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id0200", "seasons"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Episodes for Season",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id0200/seasons/id0300/episodes",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id0200", "seasons", "id0300", "episodes"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Episodes with Duration Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id0200/seasons/id0300/episodes?minDuration=40",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id0200", "seasons", "id0300", "episodes"],
+							"query": [
+								{
+									"key": "minDuration",
+									"value": "40"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Episode by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id0200/seasons/id0300/episodes/id1000",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id0200", "seasons", "id0300", "episodes", "id1000"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Series by Invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id9999/seasons",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id9999", "seasons"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. Series - Admin Operations",
+			"item": [
+				{
+					"name": "Create Series (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Test Series\",\n  \"genres\": [\"Drama\", \"Thriller\"],\n  \"status\": \"ongoing\",\n  \"synopsis\": \"A test series for API testing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Season (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"seasonNo\": 1,\n  \"episodes\": 10,\n  \"title\": \"Season 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id0200/seasons",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id0200", "seasons"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Episode (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"epNo\": 1,\n  \"title\": \"Pilot Episode\",\n  \"durationMin\": 45,\n  \"synopsis\": \"The first episode of the series\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/series/id0200/seasons/id0300/episodes",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "series", "id0200", "seasons", "id0300", "episodes"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6. Ratings - User Operations",
+			"item": [
+				{
+					"name": "Create Rating for Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"score\": 8.5,\n  \"target\": \"movie\",\n  \"targetId\": \"id0164\",\n  \"review\": \"Great movie!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/ratings",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "ratings"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Rating for Episode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"score\": 9.0,\n  \"target\": \"episode\",\n  \"targetId\": \"id1000\",\n  \"review\": \"Amazing episode!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/ratings",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "ratings"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Average Rating for Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/ratings/avg/movie/id0164",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "ratings", "avg", "movie", "id0164"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Average Rating for Series",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/ratings/avg/series/id0200",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "ratings", "avg", "series", "id0200"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Rating for Invalid Target",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"score\": 5.0,\n  \"target\": \"movie\",\n  \"targetId\": \"id9999\",\n  \"review\": \"This movie doesn't exist\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/ratings",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "ratings"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7. Error Handling & Security Tests",
+			"item": [
+				{
+					"name": "Login Invalid Credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 401', function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"invalid@example.com\",\n  \"password\": \"wrongpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie Unauthorized",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 401', function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Unauthorized Movie\",\n  \"genres\": [\"Action\"],\n  \"year\": 2024,\n  \"durationMin\": 120\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Rating Unauthorized",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 401', function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"score\": 7.5,\n  \"target\": \"movie\",\n  \"targetId\": \"id0164\",\n  \"review\": \"Unauthorized rating\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/ratings",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "ratings"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forbidden Access (User trying admin action)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 403 (Forbidden)', function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Unauthorized Movie\",\n  \"genres\": [\"Action\"],\n  \"year\": 2024,\n  \"durationMin\": 120\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unauthorized Access (Invalid Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 401 (Invalid token)', function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer invalid-token"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/auth/users/me",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "auth", "users", "me"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/invalid-route",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "invalid-route"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid ID Format (Movie Not Found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404 (Movie not found)', function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/v2/movies/invalid-id-format",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v2", "movies", "invalid-id-format"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+  "db": {
+    "uri": "mongodb://localhost:27017/media_dev"
+  },
+  "security": {
+    "jwt": {
+      "secret": "dev-secret-change-in-production",
+      "expiresIn": "24h"
+    }
+  },
+  "logging": {
+    "level": "debug"
+  }
+}
