@@ -509,3 +509,7 @@ Les données sont stockées dans `src/data/v1/db.json` et incluent :
 ---
 
 *Ce projet sert de fondation pour l'intégration future d'une base de données NoSQL (MongoDB), d'analyses périodiques de données et de tests de sécurité avancés.*
+
+---
+
+> ⚠️ This repository is a work in progress. AWS deployment is currently in the testing phase.
